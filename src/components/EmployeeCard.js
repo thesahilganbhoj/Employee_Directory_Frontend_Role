@@ -80,6 +80,8 @@ export default function EmployeeCard({ employee = {}, getInitials }) {
       }
       const dt = new Date(s)
       if (isNaN(dt.getTime())) return null
+      // Adjust for IST: add 5.5 hours (19800000 ms)
+      dt.setTime(dt.getTime() + 19800000)
       return dt
     } catch {
       return null
